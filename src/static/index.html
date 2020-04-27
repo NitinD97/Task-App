@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Task App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h2>
+            The following is the list of API requests:
+        </h2>
+        <div class="alert alert-warning">
+            <h3><strong>Create a User</strong></h3>POST <code>/users</code>
+            <hr>
+        <p>
+            This request creates a user and returns a token as well as created user details. The body should be as follows, with type as <code>JSON</code>:<br>
+            <code>
+                {
+                "name":"username",
+                "email": "example@mail.com",
+                "password": "1111111"
+                }
+            </code>
+        </p>
+        </div>
+
+        <div class="alert alert-warning">
+            <h3><strong>Login User</strong></h3>POST <code>/users/login</code>
+            <hr>
+            <p>
+                This request logs in a user and returns a token as well as user details. The body should be as follows, with type as <code>JSON</code>:<br>
+                <code>
+                    {
+                    "email": "nitin@mail.com",
+                    "password": "1111111"
+                    }
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-warning">
+            <h3><strong>Upload Avatar</strong></h3>POST <code>/users/me/avatar</code>
+            <hr>
+            <p>
+                This uploads/updates the profile picture of the user. The Image can be JPG/PNG/JPEG. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+                <br/> The body should be as follows, with type as <code>form-data</code> and in key-value pair:<br>
+                <code>
+                    avatar: file.png
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-warning">
+            <h3><strong>Logout User</strong></h3>POST <code>/users/logout</code>
+            <hr>
+            <p>
+                This request is to sign-out the user. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-warning">
+            <h3><strong>Logout User from all Sessions</strong></h3>POST <code>/users/logoutAll</code>
+            <hr>
+            <p>
+                This request is to sign-out the user from all the Sessions. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-success">
+            <h3><strong>Get Profile data</strong></h3>GET <code>/users/me</code>
+            <hr>
+            <p>
+                This request is to get profile data for the user. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-success">
+            <h3><strong>Get Profile of user by ID</strong></h3>GET <code>/users/me</code>
+            <hr>
+            <p>
+                This request is to get profile data for the user by the ID. The id is <code>_id</code> field in the profile. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-dark">
+            <h3><strong>Update user</strong></h3>PATCH <code>/users/me</code>
+            <hr>
+            <p>
+                This request is to update the profile data for the user that is currently logged in. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code><br/><br/>
+                The following fields can be updated:<br/>
+                <b>"name", "email", "password", "age".</b><br/><br/>
+                The body should be as follows:<br/>
+                <code>{
+                    "password": "1111111"
+                    }</code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-danger">
+            <h3><strong>Delete avatar</strong></h3>DELETE <code>/users/me/avatar</code>
+            <hr>
+            <p>
+                This request is to delete the avatar for a user that is currently logged in. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-danger">
+            <h3><strong>Delete user</strong></h3>DELETE <code>/users/me</code>
+            <hr>
+            <p>
+                This request is to delete the user that is currently logged in. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-warning">
+            <h3><strong>Create task</strong></h3>POST <code>/tasks</code>
+            <hr>
+            <p>
+                This request should add task to the users task list. If the completion status for the task is not provided, it will default to <code>false</code>. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-success">
+            <h3><strong>Get all tasks</strong></h3>GET <code>/tasks</code>
+            <hr>
+            <p>
+                This request gets all the tasks updated by the user. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p><br/>
+            The tasks can be sorted ascending/descending, at any field from all the available fields for a tasks as follows:<br/>
+            <b>"_id" ,"description", "createdAt", "completed"</b><br/> by giving query param as <br/>
+            <code>/tasks?sortBy=&lt;fieldname&gt;_&lt;order&gt;</code> as <code>/tasks?sortBy=completed_desc</code>
+            <br/><br/>
+            Pagination can also be used by sending <code>limit</code> and <code>skip</code> params, both the params should be provided.<br/>
+            <code>/tasks?limit=10&skip=10</code>.
+        </div>
+
+        <div class="alert alert-success">
+            <h3><strong>Get task by ID</strong></h3>GET <code>/tasks/&lt;id&gt;</code>
+            <hr>
+            <p>
+                This request gets a task by ID. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+                <br/>
+                The request should be as follows: <br/>
+                <code>/tasks/5ea0e9431447dc38c46c0592</code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-dark">
+            <h3><strong>Update task by ID</strong></h3>PATCH <code>/tasks/&lt;id&gt;</code>
+            <hr>
+            <p>
+                This request is to update the task by ID. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code><br/><br/>
+                The following fields can be updated:<br/>
+                <b>"description", "completed".</b><br/><br/>
+                The body should be as follows:<br/>
+                <code>
+                    {
+                        "completed": false
+                    }
+                </code>
+            </p>
+        </div>
+
+
+        <div class="alert alert-danger">
+            <h3><strong>Delete task by ID</strong></h3>DELETE <code>/tasks/&lt;id&gt;</code>
+            <hr>
+            <p>
+                This request is to delete the task for a user that is currently logged in. The header should contain token received while creating/logging in the user:<br/>
+                <code>
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWEzZjA5M2IxYWQ2NjI4NzQ0YTEzNjgiLCJpYXQiOjE1ODc4MDIyNTl9.qAdhkdGXCtHkrSYzai9n3950LY7vvvZ34xesclw-m9d
+                </code>
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
